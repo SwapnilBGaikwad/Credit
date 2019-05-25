@@ -3,4 +3,6 @@
     <string name="title_activity_main">Credit</string>
     <string name="title_activity_sms_sync" translatable="false">Read SMS</string>
     <string name="textview">Credit APP</string>
+    <string name="permission">Grant Permission</string>
+    <string name="title_activity_home">Your Credit Spend Details</string>
 </resources>

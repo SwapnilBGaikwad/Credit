@@ -3,9 +3,9 @@ package com.example.swapnil.credit;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.swapnil.credit.model.Message;
 import com.example.swapnil.credit.service.PermissionService;
@@ -16,6 +16,7 @@ import java.util.List;
 public class SmsSyncActivity extends AppCompatActivity {
     private PermissionService permissionService;
     private SmsService smsService;
+    private static final String TAG = "SmsSyncActivity";
 
     public SmsSyncActivity() {
         this.smsService = new SmsService(this);
@@ -33,7 +34,7 @@ public class SmsSyncActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (permissionService.hasSmsPermission()) {
-                    readMessages();
+                    loadInDbMessages();
                 } else {
                     permissionService.requestSmsPermission();
                 }
@@ -41,11 +42,8 @@ public class SmsSyncActivity extends AppCompatActivity {
         });
     }
 
-    void readMessages() {
+    void loadInDbMessages() {
         List<Message> messages = smsService.readMessages();
-        for (Message message : messages) {
-            Toast toast = Toast.makeText(getApplicationContext(), message.getBody(), Toast.LENGTH_LONG);
-            toast.show();
-        }
+        Log.v(TAG,messages.toString());
     }
 }

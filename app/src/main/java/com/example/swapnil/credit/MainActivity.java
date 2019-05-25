@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (permissionService.hasSmsPermission()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You are all set", Toast.LENGTH_LONG);
-            toast.show();
+            showHomeActivity();
         } else {
             showSmsSyncActivity();
         }
@@ -32,6 +31,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void showSmsSyncActivity() {
         Intent intent = new Intent(this, SmsSyncActivity.class);
+        startActivity(intent);
+    }
+
+    private void showHomeActivity() {
+        Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
     }
 }
