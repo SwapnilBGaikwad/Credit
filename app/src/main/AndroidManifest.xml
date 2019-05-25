@@ -23,11 +23,10 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name="com.example.swapnil.credit.service.SmsReceiver">
-            <intent-filter>
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
+        <activity
+            android:name=".SmsSyncActivity"
+            android:label="@string/title_activity_sms_sync"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
