@@ -7,13 +7,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "DBName";
 
-    public DatabaseHelper(Context context) {
+    DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE credit_info ( card_number CHAR(10) primary key, amount DOUBLE NOT NULL , date CHAR(10) NOT NULL, reason VARCHAR(20) )");
+        db.execSQL("CREATE TABLE credit_info ( card_number CHAR(10) NOT NULL, amount DOUBLE NOT NULL , date CHAR(10) NOT NULL, reason VARCHAR(20) )");
     }
 
     @Override

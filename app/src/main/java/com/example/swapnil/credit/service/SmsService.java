@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.database.Cursor;
 import android.net.Uri;
 
-import com.example.swapnil.credit.SmsSyncActivity;
 import com.example.swapnil.credit.model.Message;
 
 import java.util.Collections;
