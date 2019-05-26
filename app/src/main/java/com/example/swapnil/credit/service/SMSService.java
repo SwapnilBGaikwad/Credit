@@ -10,14 +10,14 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SmsService {
+class SMSService {
     private Activity activity;
 
-    public SmsService(Activity activity) {
+    SMSService(Activity activity) {
         this.activity = activity;
     }
 
-    public List<Message> readMessages() {
+    List<Message> readMessages() {
         Cursor cursor = activity.getContentResolver().query(Uri.parse("content://sms/inbox"), null, null, null, null);
         if (cursor == null || !cursor.moveToFirst()) {
             return Collections.emptyList();

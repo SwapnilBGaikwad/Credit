@@ -6,4 +6,5 @@
     <string name="permission">Grant Permission</string>
     <string name="title_activity_home">Your Credit Spend Details</string>
     <string name="load_messages">Load Messages</string>
+    <string name="total_spend">Total spend</string>
 </resources>

@@ -10,18 +10,18 @@ import com.example.swapnil.credit.service.spend.CreditCardParser;
 import java.util.List;
 
 public class SMSImportService {
-    private SmsService smsService;
+    private SMSService SMSService;
     private CreditCardParser cardParser;
     private CreditDB creditDB;
 
     public SMSImportService(Activity activity) {
-        this.smsService = new SmsService(activity);
+        this.SMSService = new SMSService(activity);
         this.cardParser = new CreditCardParser();
         this.creditDB = new CreditDB(activity);
     }
 
     public void loadMessagesInDb() {
-        List<Message> messages = smsService.readMessages();
+        List<Message> messages = SMSService.readMessages();
         for (Message message : messages) {
             String messageBody = message.getBody();
             if (cardParser.hasCreditInfo(messageBody)) {
@@ -29,7 +29,5 @@ public class SMSImportService {
                 creditDB.createRecord(creditInfo);
             }
         }
-        List<CreditInfo> allCreditInfo = creditDB.getAllCreditInfo();
-        System.out.println(allCreditInfo.get(0));
     }
 }
