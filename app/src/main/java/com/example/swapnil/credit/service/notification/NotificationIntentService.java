@@ -29,8 +29,8 @@ public class NotificationIntentService extends IntentService {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "1")
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("First Notification")
-                .setContentText("This is notification body :)")
+                .setContentTitle("Credit Alert")
+                .setContentText("Please pay your credit bill")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true);
