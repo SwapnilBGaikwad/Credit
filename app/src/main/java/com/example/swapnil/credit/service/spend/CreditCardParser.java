@@ -1,6 +1,9 @@
 package com.example.swapnil.credit.service.spend;
 
 import com.example.swapnil.credit.model.CreditInfo;
+import com.example.swapnil.credit.utl.DateFormatter;
+
+import java.util.Date;
 
 public class CreditCardParser {
     private final static String creditContent = "debited on Credit Card";
@@ -13,7 +16,7 @@ public class CreditCardParser {
         String[] split = message.split(" ");
         Double amount = getAmount(split[0]);
         String cardNumber = getCardNumber(split[5]);
-        String date = getDate(split[7]);
+        Date date = getDate(split[7]);
         String reason = getReason(message);
         return new CreditInfo.CreditBuilder()
                 .amount(amount)
@@ -27,8 +30,9 @@ public class CreditCardParser {
         return reasonInfo.split(":")[1].split("\\.")[0];
     }
 
-    private String getDate(String dateInfo) {
-        return dateInfo.split("\\.")[0];
+    private Date getDate(String dateInfo) {
+        String date = dateInfo.split("\\.")[0];
+        return DateFormatter.getDateFromText(date);
     }
 
     private Double getAmount(String amountInfo) {

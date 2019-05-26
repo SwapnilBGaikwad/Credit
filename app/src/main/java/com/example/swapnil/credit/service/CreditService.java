@@ -16,7 +16,9 @@ public class CreditService {
         List<CreditInfo> allCreditInfo = creditDB.getAllCreditInfo();
         Double total = 0D;
         for (CreditInfo creditInfo : allCreditInfo) {
-            total += creditInfo.getAmount();
+            if (creditInfo.isCurrentMonth()) {
+                total += creditInfo.getAmount();
+            }
         }
         return total;
     }

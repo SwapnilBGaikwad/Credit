@@ -1,9 +1,11 @@
 package com.example.swapnil.credit.model;
 
+import java.util.Date;
+
 public class CreditInfo {
     private String cardNumber;
     private Double amount;
-    private String date;
+    private Date date;
     private String reason;
 
     public String getCardNumber() {
@@ -14,12 +16,17 @@ public class CreditInfo {
         return amount;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
     public String getReason() {
         return reason;
+    }
+
+    public boolean isCurrentMonth() {
+        Date currentDate = new Date();
+        return this.date.after(new Date(currentDate.getYear(), currentDate.getMonth(),1));
     }
 
     @Override
@@ -49,7 +56,7 @@ public class CreditInfo {
             return this;
         }
 
-        public CreditBuilder date(String date) {
+        public CreditBuilder date(Date date) {
             creditInfo.date = date;
             return this;
         }

@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE credit_info ( card_number CHAR(10) NOT NULL, amount DOUBLE NOT NULL , date CHAR(10) NOT NULL, reason VARCHAR(20) )");
+        db.execSQL("CREATE TABLE credit_info ( card_number CHAR(10) NOT NULL, amount DOUBLE NOT NULL , date DATETIME NOT NULL, reason VARCHAR(20) )");
     }
 
     @Override

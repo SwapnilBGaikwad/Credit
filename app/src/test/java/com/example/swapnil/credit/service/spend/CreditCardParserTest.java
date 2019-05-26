@@ -18,7 +18,7 @@ public class CreditCardParserTest {
 
         assertEquals(94.00, creditInfo.getAmount(),0);
         assertEquals("XX4007", creditInfo.getCardNumber());
-        assertEquals("25-May-19", creditInfo.getDate());
+        assertEquals("Sat May 25 00:00:00 IST 2019", creditInfo.getDate().toString());
         assertEquals("MAULI PETROLIUM", creditInfo.getReason());
     }
 }

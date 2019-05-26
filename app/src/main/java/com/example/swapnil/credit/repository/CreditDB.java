@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.swapnil.credit.model.CreditInfo;
+import com.example.swapnil.credit.utl.DateFormatter;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -30,7 +32,7 @@ public class CreditDB {
         ContentValues values = new ContentValues();
         values.put("amount", creditInfo.getAmount());
         values.put("card_number", creditInfo.getCardNumber());
-        values.put("date", creditInfo.getDate());
+        values.put("date", DateFormatter.getDBTextFromDate(creditInfo.getDate()));
         values.put("reason", creditInfo.getReason());
         return getInstance().insert(CREDIT_TABLE, null, values);
     }
@@ -47,7 +49,7 @@ public class CreditDB {
         while (mCursor.moveToNext()) {
             String cardNumber = mCursor.getString(0);
             Double amount = mCursor.getDouble(1);
-            String date = mCursor.getString(2);
+            Date date = DateFormatter.getDateFromDB(mCursor.getString(2));
             String reason = mCursor.getString(3);
             CreditInfo creditInfo = new CreditInfo.CreditBuilder()
                     .cardNumber(cardNumber)
