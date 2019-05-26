@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.swapnil.credit.service.PermissionService;
 
@@ -30,12 +28,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showSmsSyncActivity() {
-        Intent intent = new Intent(this, SmsSyncActivity.class);
+        Intent intent = new Intent(this, SMSSyncActivity.class);
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
 
     private void showHomeActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
+        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
     }
 }
