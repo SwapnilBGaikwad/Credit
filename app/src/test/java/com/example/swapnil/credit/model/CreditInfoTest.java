@@ -22,6 +22,6 @@ public class CreditInfoTest {
         assertEquals(date, creditInfo.getDate());
         assertEquals(100.0, creditInfo.getAmount(),0);
         assertEquals("SWIGGY", creditInfo.getReason());
-        assertSame(false, creditInfo.isCurrentMonth());
+        assertSame(true, creditInfo.isCurrentMonth());
     }
 }
