@@ -1,4 +1,4 @@
-package com.example.swapnil.credit.utl;
+package com.example.swapnil.credit.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
