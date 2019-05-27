@@ -24,11 +24,6 @@ public class CreditInfo {
         return reason;
     }
 
-    public boolean isCurrentMonth() {
-        Date currentDate = new Date();
-        return this.date.after(new Date(currentDate.getYear(), currentDate.getMonth(),1));
-    }
-
     @Override
     public String toString() {
         return "CreditInfo{" +

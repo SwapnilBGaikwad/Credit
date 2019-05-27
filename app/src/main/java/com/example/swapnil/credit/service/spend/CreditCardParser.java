@@ -1,7 +1,7 @@
 package com.example.swapnil.credit.service.spend;
 
 import com.example.swapnil.credit.model.CreditInfo;
-import com.example.swapnil.credit.utl.DateFormatter;
+import com.example.swapnil.credit.util.DateFormatter;
 
 import java.util.Date;
 

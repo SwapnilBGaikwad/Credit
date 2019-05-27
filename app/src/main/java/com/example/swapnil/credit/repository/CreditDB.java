@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.swapnil.credit.model.CreditInfo;
-import com.example.swapnil.credit.utl.DateFormatter;
+import com.example.swapnil.credit.util.DateFormatter;
 
 import java.util.Date;
 import java.util.LinkedList;

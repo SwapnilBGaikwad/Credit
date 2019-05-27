@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
 
 public class CreditInfoTest {
     @Test
@@ -22,6 +21,5 @@ public class CreditInfoTest {
         assertEquals(date, creditInfo.getDate());
         assertEquals(100.0, creditInfo.getAmount(),0);
         assertEquals("SWIGGY", creditInfo.getReason());
-        assertSame(true, creditInfo.isCurrentMonth());
     }
 }

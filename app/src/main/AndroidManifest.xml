@@ -32,6 +32,10 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <service android:name=".service.notification.NotificationIntentService"
+            android:exported="false"/>
+        <receiver android:name=".service.notification.NotificationReceiver"
+            android:enabled="true"
+            android:exported="false"/>
     </application>
-
 </manifest>

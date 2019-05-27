@@ -6,11 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import com.example.swapnil.credit.service.PermissionService;
+import com.example.swapnil.credit.service.notification.NotificationManager;
 
 public class MainActivity extends AppCompatActivity {
     private PermissionService permissionService;
+    private NotificationManager notificationManager;
 
     public MainActivity() {
+        this.notificationManager = new NotificationManager(this);
         this.permissionService = new PermissionService(this);
     }
 
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
             showSmsSyncActivity();
         }
+        notificationManager.init();
     }
 
     private void showSmsSyncActivity() {
