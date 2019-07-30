@@ -7,4 +7,6 @@
     <string name="title_activity_home">Your Credit Spend Details</string>
     <string name="load_messages">Load Messages</string>
     <string name="total_spend">Credit pending Bill for this month is %1$.2f</string>
+    <string name="spend_on">Spend On</string>
+    <string name="amount">Amount</string>
 </resources>

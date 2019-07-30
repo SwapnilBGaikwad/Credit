@@ -24,4 +24,8 @@ public class CreditService {
         }
         return total;
     }
+
+    public List<CreditInfo> getCreditInfo() {
+        return creditDB.getAllCreditInfo();
+    }
 }

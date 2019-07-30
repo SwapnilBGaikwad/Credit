@@ -36,7 +36,7 @@ public class CreditCardParser {
     }
 
     private Double getAmount(String amountInfo) {
-        return Double.parseDouble(amountInfo.substring(3));
+        return Double.parseDouble(amountInfo.replace(",", "").substring(3));
     }
 
     private String getCardNumber(String message) {
