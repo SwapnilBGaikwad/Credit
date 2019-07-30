@@ -9,4 +9,5 @@
     <string name="total_spend">Credit pending Bill for this month is %1$.2f</string>
     <string name="spend_on">Spend On</string>
     <string name="amount">Amount</string>
+    <string name="total_spend_details">Current month Spend %1$2f</string>
 </resources>

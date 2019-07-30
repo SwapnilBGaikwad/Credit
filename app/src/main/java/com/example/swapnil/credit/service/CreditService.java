@@ -3,6 +3,7 @@ package com.example.swapnil.credit.service;
 import com.example.swapnil.credit.model.CreditInfo;
 import com.example.swapnil.credit.repository.CreditDB;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class CreditService {
@@ -26,6 +27,12 @@ public class CreditService {
     }
 
     public List<CreditInfo> getCreditInfo() {
-        return creditDB.getAllCreditInfo();
+        List<CreditInfo> infoList = new LinkedList<>();
+        for (CreditInfo info : creditDB.getAllCreditInfo()) {
+            if (dateService.isCurrentBillCycle(info.getDate())) {
+                infoList.add(info);
+            }
+        }
+        return infoList;
     }
 }
