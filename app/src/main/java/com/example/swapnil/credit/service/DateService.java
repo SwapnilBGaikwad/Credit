@@ -11,17 +11,17 @@ class DateService {
     }
 
     private Date getBillingStart() {
-        return getDateForMonth(1);
+        return getDateForMonth(0);
     }
 
     private Date getBillingEnd() {
-        return getDateForMonth(0);
+        return getDateForMonth(1);
     }
 
     private Date getDateForMonth(int monthDiff) {
         Date currentDate = new Date();
         int month = currentDate.getMonth();
         int year = currentDate.getYear();
-        return new Date(year,month - monthDiff, DAY_OF_MONTH);
+        return new Date(year,month + monthDiff, DAY_OF_MONTH);
     }
 }

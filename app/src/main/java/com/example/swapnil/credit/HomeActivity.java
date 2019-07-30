@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
-
 import com.example.swapnil.credit.repository.CreditDB;
 import com.example.swapnil.credit.service.CreditService;
 
@@ -44,9 +43,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void showDetailsActivity() {
-        Intent intent = new Intent(this, ExpenseDetailsActivity.class);
-        intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
-        startActivity(intent);
+        Intent intent = new Intent(HomeActivity.this, ExpenseDetailsActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
+        HomeActivity.this.startActivity(intent);
+        HomeActivity.this.finish();
     }
 
 }

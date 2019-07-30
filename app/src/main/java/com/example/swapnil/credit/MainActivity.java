@@ -35,11 +35,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SMSSyncActivity.class);
         intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
+        finish();
     }
 
     private void showHomeActivity() {
         Intent intent = new Intent(this, HomeActivity.class);
         intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(intent);
+        finish();
     }
 }

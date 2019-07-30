@@ -56,7 +56,7 @@ public class ExpenseDetailsAdaptor extends BaseAdapter {
         spendReason = convertView.findViewById(R.id.spend_on_id);
         spendReason.setText(creditInfo.getReason());
         amount = convertView.findViewById(R.id.amount_id);
-        amount.setText(creditInfo.getAmount().toString());
+        amount.setText(creditInfo.getDate().toString() + " " + creditInfo.getAmount());
     }
 
 }

@@ -12,8 +12,6 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".ExpenseDetailsActivity">
-        </activity>
         <activity
                 android:name=".MainActivity"
                 android:label="@string/title_activity_main"
@@ -26,6 +24,10 @@
             </intent-filter>
         </activity>
         <activity
+                android:label="@string/title_activity_main"
+                android:name=".ExpenseDetailsActivity">
+        </activity>
+        <activity
                 android:name=".SMSSyncActivity"
                 android:label="@string/title_activity_sms_sync"
                 android:noHistory="true"
@@ -33,6 +35,7 @@
         <activity
                 android:name=".HomeActivity"
                 android:label="@string/title_activity_home"
+                android:noHistory="false"
                 android:theme="@style/AppTheme.NoActionBar"/>
 
         <service
