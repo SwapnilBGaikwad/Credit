@@ -43,10 +43,9 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void showDetailsActivity() {
-        Intent intent = new Intent(HomeActivity.this, ExpenseDetailsActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_PREVIOUS_IS_TOP);
-        HomeActivity.this.startActivity(intent);
-        HomeActivity.this.finish();
+        Intent intent = new Intent(this, ExpenseDetailsActivity.class);
+        startActivity(intent);
+        finish();
     }
 
 }

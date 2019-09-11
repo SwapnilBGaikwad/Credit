@@ -15,7 +15,6 @@
         <activity
                 android:name=".MainActivity"
                 android:label="@string/title_activity_main"
-                android:noHistory="true"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -30,12 +29,10 @@
         <activity
                 android:name=".SMSSyncActivity"
                 android:label="@string/title_activity_sms_sync"
-                android:noHistory="true"
                 android:theme="@style/AppTheme.NoActionBar"/>
         <activity
                 android:name=".HomeActivity"
                 android:label="@string/title_activity_home"
-                android:noHistory="false"
                 android:theme="@style/AppTheme.NoActionBar"/>
 
         <service
