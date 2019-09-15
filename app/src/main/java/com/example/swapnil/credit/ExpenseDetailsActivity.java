@@ -16,7 +16,7 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
     private CreditService creditService;
 
     public ExpenseDetailsActivity() {
-        creditService = new CreditService(new CreditDB(this));
+        creditService = new CreditService(new CreditDB(this), this);
     }
 
     @Override
@@ -28,8 +28,7 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
         listView.setAdapter(new ExpenseDetailsAdaptor(this, creditInfo));
         TextView totalSpendView = findViewById(R.id.total_expense_id);
         Resources resources = getResources();
-        Double totalSpend = creditService.getTotalSpend();
-        String text = resources.getString(R.string.total_spend_details, totalSpend);
+        String text = resources.getString(R.string.total_spend_details, creditService.getTotalSpend());
         totalSpendView.setText(text);
     }
 }

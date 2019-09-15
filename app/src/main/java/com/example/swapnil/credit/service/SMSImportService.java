@@ -1,7 +1,6 @@
 package com.example.swapnil.credit.service;
 
-import android.app.Activity;
-
+import android.content.Context;
 import com.example.swapnil.credit.model.CreditInfo;
 import com.example.swapnil.credit.model.Message;
 import com.example.swapnil.credit.repository.CreditDB;
@@ -14,10 +13,10 @@ public class SMSImportService {
     private CreditCardParser cardParser;
     private CreditDB creditDB;
 
-    public SMSImportService(Activity activity) {
-        this.SMSService = new SMSService(activity);
+    public SMSImportService(Context context) {
+        this.SMSService = new SMSService(context);
         this.cardParser = new CreditCardParser();
-        this.creditDB = new CreditDB(activity);
+        this.creditDB = new CreditDB(context);
     }
 
     public void loadMessagesInDb() {

@@ -13,7 +13,6 @@ import com.example.swapnil.credit.service.SMSImportService;
 public class SMSSyncActivity extends AppCompatActivity {
     private PermissionService permissionService;
     private SMSImportService smsImportService;
-    private static final String TAG = "SMSSyncActivity";
 
     public SMSSyncActivity() {
         this.permissionService = new PermissionService(this);

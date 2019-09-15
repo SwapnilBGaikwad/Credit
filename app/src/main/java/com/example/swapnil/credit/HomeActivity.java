@@ -15,7 +15,7 @@ public class HomeActivity extends AppCompatActivity {
     private CreditService creditService;
 
     public HomeActivity() {
-        creditService = new CreditService(new CreditDB(this));
+        creditService = new CreditService(new CreditDB(this), this);
     }
 
     @Override
