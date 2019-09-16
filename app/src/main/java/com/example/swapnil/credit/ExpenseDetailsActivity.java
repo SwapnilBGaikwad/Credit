@@ -3,7 +3,6 @@ package com.example.swapnil.credit;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.example.swapnil.credit.model.CreditInfo;
@@ -16,7 +15,7 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
     private CreditService creditService;
 
     public ExpenseDetailsActivity() {
-        creditService = new CreditService(new CreditDB(this), this);
+        creditService = new CreditService(new CreditDB(this));
     }
 
     @Override

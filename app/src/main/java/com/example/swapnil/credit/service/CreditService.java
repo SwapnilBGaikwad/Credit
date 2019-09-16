@@ -1,8 +1,6 @@
 package com.example.swapnil.credit.service;
 
-import android.content.Context;
 import com.example.swapnil.credit.model.CreditInfo;
-import com.example.swapnil.credit.model.Message;
 import com.example.swapnil.credit.repository.CreditDB;
 
 import java.util.LinkedList;
@@ -11,12 +9,10 @@ import java.util.List;
 public class CreditService {
     private CreditDB creditDB;
     private DateService dateService;
-    private SMSService smsService;
 
-    public CreditService(CreditDB creditDB, Context context) {
+    public CreditService(CreditDB creditDB) {
         this.creditDB = creditDB;
         this.dateService = new DateService();
-        smsService = new SMSService(context);
     }
 
     public Double getTotalSpend() {

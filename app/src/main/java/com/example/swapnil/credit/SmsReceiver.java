@@ -7,26 +7,26 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
+import com.example.swapnil.credit.model.CreditInfo;
+import com.example.swapnil.credit.service.SMSImportService;
+import com.example.swapnil.credit.service.spend.CreditCardParser;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class SmsReceiver extends BroadcastReceiver {
-    private static final String TAG = SmsReceiver.class.getSimpleName();
     public static final String pdu_type = "pdus";
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Toast.makeText(context, "ON RECEIVE BROADCAST", Toast.LENGTH_LONG).show();
-        Log.d("ON ","RECEIVE");
+        SMSImportService smsImportService = new SMSImportService(context);
         Bundle bundle = intent.getExtras();
-        StringBuilder strMessage = new StringBuilder();
         String format = bundle.getString("format");
         Object[] pdus = (Object[]) bundle.get(pdu_type);
-        SmsMessage[] msgs = new SmsMessage[pdus.length];
-        for (int i = 0; i < msgs.length; i++) {
-            msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i], format);
-            strMessage.append("SMS from ").append(msgs[i].getOriginatingAddress());
-            strMessage.append(" :").append(msgs[i].getMessageBody()).append("\n");
+        List<String> msgs = new LinkedList<>();
+        for (Object obj : pdus) {
+            msgs.add(SmsMessage.createFromPdu((byte[]) obj, format).getMessageBody());
         }
-        Log.d(TAG, "onReceive: " + strMessage);
-        Toast.makeText(context, strMessage, Toast.LENGTH_LONG).show();
+        smsImportService.addMessages(msgs);
     }
 }

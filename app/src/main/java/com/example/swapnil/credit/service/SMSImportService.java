@@ -29,4 +29,12 @@ public class SMSImportService {
             }
         }
     }
+
+    public void addMessages(List<String> messages) {
+        for (String message : messages) {
+            if (cardParser.hasCreditInfo(message)) {
+                creditDB.createRecord(cardParser.parse(message));
+            }
+        }
+    }
 }
