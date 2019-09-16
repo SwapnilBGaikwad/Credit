@@ -14,7 +14,7 @@ public class PermissionService {
     }
 
     public void requestSmsPermission() {
-        ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_SMS}, 0);
+        ActivityCompat.requestPermissions(activity, new String[]{Manifest.permission.READ_SMS,Manifest.permission.RECEIVE_SMS}, 0);
     }
 
     public boolean hasSmsPermission() {
