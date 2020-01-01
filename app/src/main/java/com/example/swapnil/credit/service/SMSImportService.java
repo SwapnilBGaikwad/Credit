@@ -1,40 +1,29 @@
 package com.example.swapnil.credit.service;
 
 import android.content.Context;
-import com.example.swapnil.credit.model.CreditInfo;
+
 import com.example.swapnil.credit.model.Message;
-import com.example.swapnil.credit.repository.CreditDB;
-import com.example.swapnil.credit.service.spend.CreditCardParser;
+import com.example.swapnil.credit.repository.CreditClient;
 
 import java.util.List;
 
 public class SMSImportService {
     private SMSService SMSService;
-    private CreditCardParser cardParser;
-    private CreditDB creditDB;
+    private CreditClient creditClient;
 
     public SMSImportService(Context context) {
         this.SMSService = new SMSService(context);
-        this.cardParser = new CreditCardParser();
-        this.creditDB = new CreditDB(context);
+        this.creditClient = new CreditClient();
     }
 
     public void loadMessagesInDb() {
-        List<Message> messages = SMSService.readMessages();
-        for (Message message : messages) {
-            String messageBody = message.getBody();
-            if (cardParser.hasCreditInfo(messageBody)) {
-                CreditInfo creditInfo = cardParser.parse(messageBody);
-                creditDB.createRecord(creditInfo);
-            }
-        }
+        Message[] messages = SMSService.readMessages().toArray(new Message[0]);
+        creditClient.execute(messages);
     }
 
     public void addMessages(List<String> messages) {
         for (String message : messages) {
-            if (cardParser.hasCreditInfo(message)) {
-                creditDB.createRecord(cardParser.parse(message));
-            }
+            creditClient.execute(new Message(message));
         }
     }
 }

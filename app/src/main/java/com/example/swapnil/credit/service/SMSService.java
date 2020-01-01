@@ -3,6 +3,7 @@ package com.example.swapnil.credit.service;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+
 import com.example.swapnil.credit.model.Message;
 
 import java.util.Collections;
@@ -23,7 +24,12 @@ class SMSService {
         }
         List<Message> messages = new LinkedList<>();
         while (cursor.moveToNext()) {
-            messages.add(new Message(cursor.getString(12)));
+            String text = cursor.getString(12);
+            if (text.contains("XX8002")
+                    && cursor.getString(2).contains("ICICIB")
+                    && !text.contains("OTP")) {
+                messages.add(new Message(text));
+            }
         }
         cursor.close();
         return messages;

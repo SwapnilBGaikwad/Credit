@@ -1,18 +1,18 @@
 package com.example.swapnil.credit.model;
 
 public class Message {
-    private String body;
+    private String content;
 
-    public Message(String body) {
-        this.body = body;
+    public Message(String content) {
+        this.content = content;
     }
 
-    public String getBody() {
-        return body;
+    public String getContent() {
+        return content;
     }
 
     @Override
     public String toString() {
-        return getBody();
+        return getContent();
     }
 }
